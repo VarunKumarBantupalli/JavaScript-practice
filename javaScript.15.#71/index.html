@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box">hey i am box</div>
+    </div>
+    <script>
+        let div = document.createElement("div");
+        div.innerHTML = "i have been inserted using js <b>by varun </b>"
+        div.setAttribute("class" ,"created") ;
+        document.querySelector(".container").append(div);
+    </script>
+</body>
+</html>

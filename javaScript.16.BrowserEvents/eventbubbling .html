@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event bubbling</title>
+    <style>
+        .child{
+            margin: 34px;
+            padding: 34px;
+            border: 2px solid black;
+            background-color: rgb(24, 134, 231);
+            cursor: pointer;
+        }
+        .container{
+            margin: 34px;
+            padding: 34px;
+            border: 2px solid black;
+            background-color: aqua;
+            cursor: pointer;
+        }
+        .childContainer{
+            margin: 34px;
+            padding: 34px;
+            border: 2px solid black;
+            background-color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="childContainer">
+            <div class="child">
+                i am a child
+            </div>
+        </section>
+    </div>
+    <script>
+        document.querySelector(".child").addEventListener("click",(e) => {
+            e.stopPropagation()
+            alert("child is clicked")
+        })
+        document.querySelector(".childContainer").addEventListener("click",(e)=>{
+            e.stopPropagation()
+            alert("child container is clicked")
+        })
+        document.querySelector(".container").addEventListener("click",(e)=>{
+            e.stopPropagation()
+            alert("container is clicked")
+        })
+        let a = setInterval (() => {
+            document.querySelector(".child").style.background = "black" ;
+        },3000) ;
+        console.log(a)
+        let b = setTimeout(()=>{
+            document.querySelector(".child").style.background = "grey" ;
+        },5000) ;
+    </script>
+</body>
+</html>
